@@ -1,9 +1,17 @@
-<h1>Blogs</h1>
+{% extends 'blog/base.html' %}
+{% block content %}
+
+
+<br>
+
 <h3>Khaled has written {{ blogs_count }} blog{{ blogs_count | pluralize }}</h3>
+<br>
 {% for blog in blogs %}
 <a href="{% url 'blog:details' blog.id %}"><h2>{{ blog.title }}</h2></a>
 <br>
 <h5>{{blog.date | date:'M d Y' | upper}}</h5>
 <br>
 <p>{{ blog.body |striptags| truncatechars:150 }}</p>
+<hr>
 {% endfor %}
+{% endblock %}

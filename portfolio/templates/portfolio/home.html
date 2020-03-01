@@ -1,4 +1,7 @@
 <h1>Home</h1>
+<br>
+{% load static %}
+<img src="{% static 'portfolio/me.JPG' %}" alt="Khaled's photo">
 {% for project in projects %}
 {{project.title}}
 <br>

@@ -1,9 +1,9 @@
 <h1>Blogs</h1>
-{{ blogs }}
+<h3>Khaled has written {{ blogs_count }} blog{{ blogs_count | pluralize }}</h3>
 {% for blog in blogs %}
-{{ blog.title }}
+<a href="{% url 'blog:details' blog.id %}"><h2>{{ blog.title }}</h2></a>
 <br>
-{{blog.date}}
+<h5>{{blog.date | date:'M d Y' | upper}}</h5>
 <br>
-{{blog.body}}
+<p>{{ blog.body |striptags| truncatechars:150 }}</p>
 {% endfor %}
